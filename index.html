@@ -18,8 +18,8 @@
 <link href="https://api.fontshare.com/v2/css?f[]=gambetta@300,301&display=swap" rel="stylesheet">
 
 <!-- Charte de marque — Palette C « Ocre doux » (tokens --ae-*) -->
-<link rel="stylesheet" href="brand.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="brand.css?v=3">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -46,7 +46,7 @@
 
 <!-- =================== NAV =================== -->
 <header class="nav" id="nav">
-  <a href="#top" class="nav__brand">
+  <a href="#accueil" class="nav__brand">
     <svg class="nav__mark" viewBox="0 0 1024 1024" width="34" height="34" aria-hidden="true" focusable="false"><use href="#ae-mark"/></svg>
     <span class="wordmark">Atelier&nbsp;<span class="ac">É</span>pure</span>
   </a>
@@ -94,8 +94,11 @@
 <main id="top">
 <div class="nebula-paper">
 <section class="benefits" id="hero">
-  <p class="benefits__eyebrow mono reveal">Studio · Sites de restaurants · Bruxelles, BE</p>
-  <h2 class="benefits__title reveal">Le résultat,<br>pas la <em>technique</em>.</h2>
+  <div class="section-head">
+    <span class="num mono">[01]</span>
+    <span class="label mono">Ce qu'on apporte</span>
+  </div>
+<h2 class="benefits__title reveal">Ce qu'un site Atelier Épure<br><em class="ac">apporte</em> à votre restaurant</h2>
   <p class="benefits__lede reveal">Vous ne payez pas un site web. Vous payez ce qu'il rapporte&nbsp;: des couverts en plus, des marges intactes, une image qui fait venir.</p>
 
   <ol class="benefits-list">
@@ -149,12 +152,12 @@
 <!-- =================== [01] MANIFESTE =================== -->
 <section class="manifeste" id="apropos">
   <div class="section-head">
-    <span class="num mono">[01]</span>
+    <span class="num mono">[02]</span>
     <span class="label mono">Le studio</span>
   </div>
 
   <h2 class="kinetic" data-kinetic>
-    Chaque page est <em>dessinée</em>, pas générée à la chaîne. Un seul artisan, une méthode de studio, une exigence qui se voit au premier coup d'œil.
+    Chaque page est <em class="ac">dessinée</em>, pas générée à la chaîne. Un seul artisan, une méthode de studio, une exigence qui se voit au premier coup d'œil.
   </h2>
 
   <div class="manifeste__grid">
@@ -174,52 +177,6 @@
   </div>
 </section>
 
-<!-- =================== [02] SERVICES =================== -->
-<section class="services" id="services">
-  <div class="section-head">
-    <span class="num mono">[02]</span>
-    <span class="label mono">Ce qu'on installe</span>
-  </div>
-
-  <ul class="svc-list">
-    <li class="svc reveal">
-      <span class="svc__no mono">01</span>
-      <span class="svc__title serif">Site vitrine sur-mesure</span>
-      <span class="svc__desc">Dessiné autour de votre lieu, votre carte, votre ambiance. Rapide, impeccable sur mobile.</span>
-      <span class="svc__arrow" aria-hidden="true">→</span>
-    </li>
-    <li class="svc reveal">
-      <span class="svc__no mono">02</span>
-      <span class="svc__title serif">Réservation directe</span>
-      <span class="svc__desc">Widget TheFork ou réservation intégrée. Vos couverts, sans commission d'intermédiaire.</span>
-      <span class="svc__arrow" aria-hidden="true">→</span>
-    </li>
-    <li class="svc reveal">
-      <span class="svc__no mono">03</span>
-      <span class="svc__title serif">SEO local & Google</span>
-      <span class="svc__desc">Fiche Google Business optimisée, mots-clés de quartier. On vous rend enfin trouvable.</span>
-      <span class="svc__arrow" aria-hidden="true">→</span>
-    </li>
-    <li class="svc reveal">
-      <span class="svc__no mono">04</span>
-      <span class="svc__title serif">Multilingue FR · EN · NL</span>
-      <span class="svc__desc">Indispensable en Belgique. Vos clients lisent votre carte dans leur langue.</span>
-      <span class="svc__arrow" aria-hidden="true">→</span>
-    </li>
-    <li class="svc reveal">
-      <span class="svc__no mono">05</span>
-      <span class="svc__title serif">Galerie & menu interactif</span>
-      <span class="svc__desc">Vos plats mis en scène, votre carte toujours à jour, sans PDF qui pèse trois tonnes.</span>
-      <span class="svc__arrow" aria-hidden="true">→</span>
-    </li>
-    <li class="svc reveal">
-      <span class="svc__no mono">06</span>
-      <span class="svc__title serif">Tranquillité & maintenance</span>
-      <span class="svc__desc">Hébergement, sauvegardes, mises à jour. Vous cuisinez, on s'occupe du reste.</span>
-      <span class="svc__arrow" aria-hidden="true">→</span>
-    </li>
-  </ul>
-</section>
 </div><!-- /nebula-paper (groupe 1) -->
 
 <!-- =================== [03] RÉALISATIONS (sombre) =================== -->
@@ -295,13 +252,17 @@
         <span class="mono">+ 49&nbsp;€/mois</span>
       </div>
       <ul class="plan__feats">
-        <li>Site vitrine sur-mesure (une page)</li>
-        <li>Mobile impeccable & rapide</li>
-        <li>Fiche Google Business</li>
-        <li>Formulaire de contact</li>
-        <li>Hébergement & maintenance</li>
+        <li>Site vitrine one-page (responsive desktop + mobile)</li>
+        <li>1 langue (français)</li>
+        <li>Section identité : nom, logo, slogan</li>
+        <li>Section histoire / à propos (3-5 lignes)</li>
+        <li>Section menu complet (entrées, plats, desserts avec prix)</li>
+        <li>Section contact : adresse en texte (sans carte interactive), téléphone, email, horaires</li>
+        <li>Liens vers les réseaux sociaux existants (Facebook, Instagram, etc.)</li>
+        <li>Hébergement, renouvellement du nom de domaine (au nom du client) et certificat SSL inclus dans la maintenance</li>
+        <li>Quelques photos fournies par le client (pas de minimum imposé)</li>
       </ul>
-      <a href="#contact" class="btn btn-ghost plan__cta">Choisir Essentiel</a>
+      <a href="#contact" class="btn btn-solid plan__cta">Choisir Essentiel</a>
     </article>
 
     <!-- Signature (mise en avant) -->
@@ -316,18 +277,18 @@
         <span class="mono">+ 89&nbsp;€/mois</span>
       </div>
       <ul class="plan__feats">
-        <li>Tout l'Essentiel, en plusieurs pages</li>
-        <li>Identité visuelle & design dédié</li>
-        <li>Réservation directe (TheFork / widget)</li>
-        <li>Multilingue FR · EN · NL</li>
-        <li>SEO local approfondi</li>
-        <li>Galerie & menu interactif</li>
+        <li>Tout l'Essentiel ✓</li>
+        <li>Carte interactive Google Maps intégrée à la section contact</li>
+        <li>Système de réservation en ligne (TheFork ou widget custom)</li>
+        <li>Site multilingue FR / EN / NL</li>
+        <li>Galerie photos étendue (10-20 photos additionnelles catégorisées : plats, équipe, intérieur, événements)</li>
+        <li>SEO local — setup unique au lancement (Google Business Profile, données structurées Schema.org Restaurant, cohérence NAP, audit des mots-clés locaux)</li>
       </ul>
-      <a href="#contact" class="btn btn-accent plan__cta">Choisir Signature</a>
+      <a href="#contact" class="btn btn-solid plan__cta">Choisir Signature</a>
     </article>
 
     <!-- Premium -->
-    <article class="plan reveal">
+    <article class="plan plan--dark reveal">
       <header class="plan__head">
         <h3 class="serif">Premium</h3>
         <p class="mono">L'expérience complète</p>
@@ -337,13 +298,13 @@
         <span class="mono">+ 199&nbsp;€/mois</span>
       </div>
       <ul class="plan__feats">
-        <li>Tout Signature, sans limite de pages</li>
-        <li>Blog & contenus éditoriaux</li>
-        <li>Carte interactive & évènements</li>
-        <li>Suivi & optimisation continue</li>
-        <li>Priorité sur les demandes</li>
+        <li>Tout le Signature ✓</li>
+        <li>Menu interactif (plats vedettes avec photos dédiées, catégorisation, filtres)</li>
+        <li>SEO stratégique continu (15-30 mots-clés cibles, analyse 5-10 concurrents locaux, optimisation continue, suivi positions Google + rapport mensuel, recherche de backlinks)</li>
+        <li>Blog avec 2 articles/mois rédigés et SEO-optimisés</li>
+        <li>Séance photo privée sur place réalisée par notre photographe partenaire</li>
       </ul>
-      <a href="#contact" class="btn btn-ghost plan__cta">Choisir Premium</a>
+      <a href="#contact" class="btn btn-solid plan__cta">Choisir Premium</a>
     </article>
   </div>
 </section>
@@ -414,7 +375,7 @@
     </details>
     <details class="qa">
       <summary><span class="serif">Je n'ai pas de belles photos, c'est un problème ?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-      <p>On vous guide pour les prendre vous-même proprement, ou on organise une séance. Un site de restaurant vit par ses images — on ne les laisse pas au hasard.</p>
+      <p>Un site de restaurant vit par ses images. L'offre Premium inclut une séance photo réalisée par un photographe partenaire, pour des visuels à la hauteur de votre cuisine.</p>
     </details>
     <details class="qa">
       <summary><span class="serif">Est-ce que je possède vraiment le site ?</span><span class="qa__icon" aria-hidden="true"></span></summary>

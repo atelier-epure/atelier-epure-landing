@@ -237,24 +237,34 @@ em{font-style:italic}
 
 .benefits-list{list-style:none;border-top:1px solid var(--encre)}
 .benefit{
+  position:relative;overflow:hidden;
   display:grid;grid-template-columns:54px minmax(190px,1fr) 1.7fr;
   align-items:baseline;gap:clamp(14px,2vw,30px);
   padding:clamp(22px,3vw,34px) 6px;border-bottom:1px solid var(--hair);
-  transition:padding-left .4s var(--ease);
+  transition:color .4s var(--ease),padding-left .4s var(--ease);
 }
-.benefit:hover{padding-left:14px}
-.benefit:hover .benefit__title{color:var(--accent-strong)}
+.benefit::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--encre);
+  transform:translateY(101%);transition:transform .5s var(--ease);
+}
+.benefit:hover{padding-left:14px;}
+.benefit:hover::before{transform:translateY(0);}
+.benefit:hover .benefit__no{color:var(--accent);}
+.benefit:hover .benefit__title{color:var(--papier);}
+.benefit:hover .benefit__desc{color:rgba(247,244,238,.7);}
+.benefit:hover .benefit__desc strong{color:var(--accent);}
 .benefit__no{
   font-family:"Space Mono",monospace;font-weight:700;font-size:.78rem;
   letter-spacing:.06em;color:var(--accent-strong);
+  transition:color .3s var(--ease);
 }
 .benefit__title{
   font-family:"Gambetta",serif;font-weight:300;
   font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.04;
   transition:color .3s var(--ease);
 }
-.benefit__desc{color:var(--encre-60);font-size:1rem;line-height:1.5;max-width:54ch}
-.benefit__desc strong{color:var(--accent-strong);font-weight:600}
+.benefit__desc{color:var(--encre-60);font-size:1rem;line-height:1.5;max-width:54ch;transition:color .3s var(--ease);}
+.benefit__desc strong{color:var(--accent-strong);font-weight:600;transition:color .3s var(--ease);}
 
 @media(max-width:720px){
   .benefit{grid-template-columns:38px 1fr;gap:6px 14px}
@@ -266,7 +276,7 @@ em{font-style:italic}
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   font-family:"Hanken Grotesk";font-weight:500;font-size:.95rem;letter-spacing:.01em;
   padding:14px 28px;border:1px solid var(--encre);border-radius:var(--r);cursor:pointer;
-  position:relative;overflow:hidden;transition:color .35s var(--ease);
+  position:relative;overflow:hidden;isolation:isolate;transition:color .35s var(--ease);
 }
 .btn::before{
   content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);
@@ -318,6 +328,8 @@ em{font-style:italic}
 .kinetic .w.lit{color:var(--encre)}
 .kinetic--light .w{color:var(--hair-light)}
 .kinetic--light .w.lit{color:var(--papier)}
+/* mot accentué (.ac) : ocre constant, prioritaire sur l'effet kinetic */
+.kinetic .ac.w,.kinetic .ac.w.lit{color:var(--accent)}
 
 .manifeste__grid{
   display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:clamp(20px,3vw,46px);align-items:start;
@@ -396,25 +408,38 @@ em{font-style:italic}
   position:relative;transition:transform .4s var(--ease);
 }
 .plan:hover{transform:translateY(-6px)}
-.plan--featured{background:var(--encre);color:var(--papier);border-color:var(--encre);
+/* Signature — fond ocre, texte blanc */
+.plan--featured{background:var(--accent);color:var(--papier);border-color:var(--encre);
   transform:translateY(-14px)}
 .plan--featured:hover{transform:translateY(-20px)}
+/* Premium — fond noir, texte papier */
+.plan--dark{background:var(--encre);color:var(--papier);border-color:var(--encre)}
 .plan__badge{position:absolute;top:-11px;left:clamp(22px,2.5vw,32px);
   background:var(--accent);color:var(--encre)!important;padding:5px 12px;border-radius:var(--r)}
+.plan--featured .plan__badge{background:var(--encre);color:var(--accent)!important}
 .plan__head h3{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-bottom:6px}
-.plan--featured .plan__head .mono{color:rgba(247,244,238,.6)}
+.plan--featured .plan__head .mono{color:rgba(247,244,238,.75)}
+.plan--dark .plan__head .mono{color:rgba(247,244,238,.6)}
 .plan__price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
   padding:22px 0;margin:18px 0;border-block:1px solid var(--hair)}
-.plan--featured .plan__price{border-color:var(--hair-light)}
+.plan--featured .plan__price{border-color:rgba(247,244,238,.3)}
+.plan--dark .plan__price{border-color:var(--hair-light)}
 .plan__price .amount{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:400}
-.plan--featured .plan__price .mono{color:rgba(247,244,238,.7)}
+.plan--featured .plan__price .mono{color:rgba(247,244,238,.8)}
+.plan--dark .plan__price .mono{color:rgba(247,244,238,.7)}
 .plan__feats{list-style:none;display:flex;flex-direction:column;gap:13px;flex:1;margin-bottom:30px}
 .plan__feats li{position:relative;padding-left:24px;font-size:.98rem;color:var(--encre-60)}
-.plan--featured .plan__feats li{color:rgba(247,244,238,.82)}
+.plan--featured .plan__feats li{color:rgba(247,244,238,.88)}
+.plan--dark .plan__feats li{color:rgba(247,244,238,.82)}
 .plan__feats li::before{content:"—";position:absolute;left:0;color:var(--accent-strong)}
-.plan--featured .plan__feats li::before{color:var(--accent)}
+.plan--featured .plan__feats li::before{color:var(--papier)}
+.plan--dark .plan__feats li::before{color:var(--accent)}
 .plan__cta{width:100%}
-.plan--featured .btn-ghost{border-color:var(--papier);color:var(--papier)}
+/* Boutons d'offre : fond noir -> blanc au survol (texte encre) */
+.plan__cta.btn-solid::before{background:var(--papier)}
+.plan__cta.btn-solid:hover{color:var(--encre)}
+/* Premium : bouton noir sur carte noire -> filet papier pour le détacher */
+.plan--dark .btn-solid{border-color:var(--papier)}
 
 /* =================== [05] GARANTIE =================== */
 .garantie{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad) clamp(40px,7vw,90px)}
