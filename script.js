@@ -22,12 +22,35 @@
   onScrollNav();
   window.addEventListener("scroll", onScrollNav, { passive: true });
 
-  /* ---------- 2. BURGER (mobile) : scroll vers sections ---------- */
+  /* ---------- 2. BURGER (mobile) : menu plein écran ---------- */
   var burger = document.getElementById("burger");
-  if (burger) {
+  var navMenu = document.getElementById("navMenu");
+  if (burger && navMenu) {
+    function closeMenu() {
+      burger.classList.remove("is-open");
+      navMenu.classList.remove("is-open");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Ouvrir le menu");
+      navMenu.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("nav-open");
+    }
+    function openMenu() {
+      burger.classList.add("is-open");
+      navMenu.classList.add("is-open");
+      burger.setAttribute("aria-expanded", "true");
+      burger.setAttribute("aria-label", "Fermer le menu");
+      navMenu.setAttribute("aria-hidden", "false");
+      document.body.classList.add("nav-open");
+    }
     burger.addEventListener("click", function () {
-      var t = document.getElementById("tarifs");
-      if (t) t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+      if (navMenu.classList.contains("is-open")) closeMenu();
+      else openMenu();
+    });
+    navMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", closeMenu);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navMenu.classList.contains("is-open")) closeMenu();
     });
   }
 

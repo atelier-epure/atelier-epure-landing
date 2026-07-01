@@ -97,7 +97,32 @@ em{font-style:italic}
 .nav__cta:hover{background:var(--encre);color:var(--papier)}
 .nav__cta:hover .dot{transform:scale(1.5)}
 .nav__burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
-.nav__burger span{width:24px;height:2px;background:var(--encre);transition:.3s}
+.nav__burger span{width:24px;height:2px;background:var(--encre);transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.nav__burger.is-open span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.nav__burger.is-open span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+
+/* Panneau de menu mobile (plein écran, ouvert par le burger) */
+.nav__menu{
+  position:fixed;inset:0;z-index:90;
+  background:var(--papier);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s;
+  padding:var(--pad);
+}
+.nav__menu.is-open{opacity:1;visibility:visible;transform:none}
+.nav__menu-links{display:flex;flex-direction:column;align-items:center;gap:26px}
+.nav__menu-links a{
+  font-family:"Space Mono",monospace;font-size:1rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--encre);
+}
+.nav__menu-cta{
+  display:inline-flex;align-items:center;gap:11px;margin-top:6px;
+  border:1px solid var(--encre);padding:14px 26px;border-radius:var(--r);
+}
+.nav__menu-cta .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+body.nav-open{overflow:hidden}
+@media(min-width:901px){.nav__menu{display:none}}
 
 /* =================== NAV — variante claire sur l'intro sombre =================== */
 .nav.is-ontop-dark .wordmark,
@@ -106,6 +131,11 @@ em{font-style:italic}
 .nav.is-ontop-dark .nav__cta{color:var(--papier);border-color:rgb(var(--ae-papier-rgb) / .45)}
 .nav.is-ontop-dark .nav__cta:hover{background:var(--papier);color:var(--encre)}
 .nav.is-ontop-dark .nav__burger span{background:var(--papier)}
+
+/* Menu ouvert : forcer l'encre foncée sur le logo + le burger (sinon crème sur crème) */
+body.nav-open .nav.is-ontop-dark .wordmark,
+body.nav-open .nav.is-ontop-dark .nav__mark{color:var(--encre)}
+body.nav-open .nav.is-ontop-dark .nav__burger span{background:var(--encre)}
 
 /* =================== HERO D'INTRO (fond WebGL) =================== */
 .intro{
@@ -542,10 +572,12 @@ em{font-style:italic}
   .steps{grid-template-columns:repeat(2,1fr)}
   .works__grid{grid-template-columns:1fr;gap:28px;max-width:560px}
 }
-@media(max-width:720px){
+@media(max-width:900px){
   .nav__links{display:none}
   .nav__cta{display:none}
   .nav__burger{display:flex}
+}
+@media(max-width:720px){
   .svc{grid-template-columns:44px 1fr;gap:8px 16px}
   .svc__desc{grid-column:2/-1}
   .svc__arrow{display:none}

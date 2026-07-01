@@ -19,7 +19,7 @@
 
 <!-- Charte de marque — Palette C « Ocre doux » (tokens --ae-*) -->
 <link rel="stylesheet" href="brand.css?v=3">
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
 
@@ -56,8 +56,16 @@
     <a href="#tarifs">Tarifs</a>
   </nav>
   <a href="#contact" class="nav__cta mono">Réserver un appel <span class="dot"></span></a>
-  <button class="nav__burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span></button>
+  <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span></button>
 </header>
+<div class="nav__menu" id="navMenu" aria-hidden="true">
+  <nav class="nav__menu-links" aria-label="Navigation mobile">
+    <a href="#methode">Méthode</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#contact" class="nav__menu-cta mono">Réserver un appel <span class="dot"></span></a>
+  </nav>
+</div>
 
 <!-- =================== HERO D'INTRO (fond WebGL — nébuleuse) =================== -->
 <section class="intro" id="accueil" aria-label="Atelier Épure — introduction">
@@ -439,6 +447,6 @@
 </footer>
 
 <script src="intro.js"></script>
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
